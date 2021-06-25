@@ -1,0 +1,23 @@
+.headerInfo{
+  border: none;
+  width: 498px;
+  height: 69px;
+  border-radius: 10px;
+  background-color: #fff;
+}
+input{
+  border: none;
+  width: 100%;
+  height: 40px;
+  border-radius: 10px;
+  padding-left: 35px !important;
+}
+.plus{
+  position: absolute;
+  margin-left: 10px;
+
+}
+.taskAdder{
+  display: flex;
+align-items: center;
+}

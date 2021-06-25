@@ -1,11 +1,11 @@
 import React from 'react';
-import { Counter } from './features/counter/Counter';
 import './App.css';
+import TodoApp from './app/TodoApp';
 
 function App() {
   return (
     <div className="App">
-      <h1>Redux New App</h1>
+      <TodoApp />
     </div>
   );
 }

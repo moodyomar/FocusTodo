@@ -1,0 +1,17 @@
+:root{
+  --done:#1eb552;
+  --trash:#e84a4a;
+  --greenCategory:#67be46;
+  --icons:#8d8b8b;
+  --clock:#f5464f;
+  --text:#707070;
+  --hideCompletedTasks:#a79e9e;
+  --white:#FFFCFC;
+  --todoAppBg:#f1f2f4;
+}
+.App{
+  display: grid;
+  width: 100vw;
+  height: 100vh;
+  place-items: center;
+}
