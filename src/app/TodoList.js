@@ -1,13 +1,22 @@
 import React from 'react';
-
+import TodoItem from './TodoItem';
+import '../style/TodoList.css'
 
 const TodoList = () => { 
 
 return(
 
-<div className=''>
-<h1>TodoList</h1>
-</div>
+<>
+  <div className="todoCategory">
+    Studying
+  </div>
+<TodoItem />
+<TodoItem />
+<div className="todoCategory">
+    Studying
+  </div>
+<TodoItem />
+</>
 
 )
 }
