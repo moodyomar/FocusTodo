@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import TodoItem from './TodoItem';
 import '../style/TodoList.css'
+import { useSelector } from 'react-redux';
 
 const TodoList = () => { 
+const {studying,health} = useSelector(state => state.todoReducer.todos)
+
+
+  useEffect(() => {
+    console.log('update');
+    
+})
 
 return(
 
@@ -10,12 +18,26 @@ return(
   <div className="todoCategory">
     Studying
   </div>
-<TodoItem />
-<TodoItem />
+{studying.map(item => {
+if(!item.completed){
+  return(
+    <TodoItem 
+    name={item.todo}
+    time={item.time}
+    category={item.category}
+    isCompleted={item.completed}
+     />
+  )
+}
+
+})}
+
 <div className="todoCategory">
-    Studying
+    Health
   </div>
-<TodoItem />
+  {/* {health.map(item => (
+  <TodoItem todoName={item.todo} />
+))} */}
 </>
 
 )
