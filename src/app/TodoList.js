@@ -15,10 +15,13 @@ const {studying,health} = useSelector(state => state.todoReducer.todos)
 return(
 
 <>
+
+{ studying.length > 1 && 
+<>
   <div className="todoCategory">
     Studying
   </div>
-{studying.map(item => {
+  {studying.map(item => {
 if(!item.completed){
   return(
     <TodoItem 
@@ -28,14 +31,19 @@ if(!item.completed){
     isCompleted={item.completed}
      />
   )
+}})}
+  </>
+  
 }
 
-})}
 
+
+{ health.length > 1 &&
+<>
 <div className="todoCategory">
     Health
   </div>
-  {/* {health.map(item => {
+  {health.map(item => {
 if(!item.completed){
   return(
     <TodoItem 
@@ -45,9 +53,11 @@ if(!item.completed){
     isCompleted={item.completed}
      />
   )
-}
+}})}
+  </>
 
-})} */}
+}
+  
 
 </>
 
