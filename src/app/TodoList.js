@@ -35,9 +35,20 @@ if(!item.completed){
 <div className="todoCategory">
     Health
   </div>
-  {/* {health.map(item => (
-  <TodoItem todoName={item.todo} />
-))} */}
+  {/* {health.map(item => {
+if(!item.completed){
+  return(
+    <TodoItem 
+    name={item.todo}
+    time={item.time}
+    category={item.category}
+    isCompleted={item.completed}
+     />
+  )
+}
+
+})} */}
+
 </>
 
 )

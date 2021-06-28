@@ -13,11 +13,11 @@ const initState = {
       { id: Date.now(), todo: 'Read a book', time: 'today', category: 'Studying', completed: false },
       { id: Date.now(), todo: 'Start a todo project', time: 'today', category: 'Studying', completed: true },
     ],
-    // health: [
+    health: [
 
-    //   { id: Date.now(), todo: 'Hit the gym', time: 'today', category: 'Health', completed: false },
-    //   { id: Date.now(), todo: 'Go for a run', time: 'today', category: 'Health', completed: false },
-    // ],
+      { id: Date.now(), todo: 'Hit the gym', time: 'today', category: 'Health', completed: false },
+      { id: Date.now(), todo: 'Go for a run', time: 'today', category: 'Health', completed: false },
+    ],
 
   },
 
@@ -38,7 +38,11 @@ const todoReducer = (state = initState, { type, payload }) => {
         completed: payload.isCompleted,
       }
 
-      return { ...state,todos:{studying:[...state.todos.studying,dispatchedTodo]} }
+
+      return { ...state,todos:{
+        studying:[...state.todos.studying,dispatchedTodo],
+
+      }}
 
 
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, {useRef } from 'react';
 import '../style/TodoInput.css'
 import { FaPlus } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
@@ -8,17 +8,24 @@ import { addTodo } from '../redux/actions/todoActions';
 
 const TodoInput = () => {
 
+let selectedCategory = useRef();
+
 // state managment
 let {estimatedTime,
   tasksToBeCompleted,
   elapsedTime,
-  completedTasks,todos} = useSelector(state => state.todoReducer);
+  completedTasks} = useSelector(state => state.todoReducer);
 
 let dispatch = useDispatch();
 
 const onHittingEnter = (e) => {
+  let category = selectedCategory.current.value;
+  let d = new Date()
+  let getDay = d.getDay()
+  let days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+let day = days[getDay-1]
   if(e.code === 'Enter' && e.target.value.length > 5){
-   dispatch(addTodo(e.target.value,'16:00','Sport',false));
+   dispatch(addTodo(e.target.value,day,category,false));
   }
     
   
@@ -59,8 +66,13 @@ const onHittingEnter = (e) => {
         <div className="taskAdder">
           <FaPlus className="plus" />
           <input onKeyPress={(e) => onHittingEnter(e)} type="test" placeholder="Add a task to “Studying” press Enter to save" />
+          <select className="mySelect" onChange={() => {console.log(selectedCategory)
+          }} ref={selectedCategory} >
+            <option value="Studying">Studying</option>
+            <option value="Health">Health</option>
+            <option value="Work">Work</option>
+          </select>
         </div>
-
       </div>
     </div>
 

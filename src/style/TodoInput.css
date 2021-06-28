@@ -36,3 +36,13 @@ align-items: center;
   color: var(--text);
   margin-right: 10px;
 }
+
+.mySelect{
+  width: 15%;
+  border: none;
+  outline: none;
+  height: 40px;
+  border-radius: 10px;
+  margin-left: 10px;
+  font-size: 15px;
+}
