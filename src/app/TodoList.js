@@ -4,7 +4,7 @@ import '../style/TodoList.css'
 import { useSelector } from 'react-redux';
 
 const TodoList = () => { 
-const {studying,health} = useSelector(state => state.todoReducer.todos)
+const {studying,health,work} = useSelector(state => state.todoReducer.todos)
 
 
   useEffect(() => {
@@ -16,9 +16,10 @@ return(
 
 <>
 
-{ studying.length > 1 && 
+{
+studying.length > 0 &&
 <>
-  <div className="todoCategory">
+<div className="todoCategory">
     Studying
   </div>
   {studying.map(item => {
@@ -29,16 +30,16 @@ if(!item.completed){
     time={item.time}
     category={item.category}
     isCompleted={item.completed}
+    id={item.id}
      />
   )
 }})}
-  </>
-  
+</>
 }
 
 
-
-{ health.length > 1 &&
+{
+health.length > 0 &&
 <>
 <div className="todoCategory">
     Health
@@ -51,13 +52,35 @@ if(!item.completed){
     time={item.time}
     category={item.category}
     isCompleted={item.completed}
+    id={item.id}
      />
   )
 }})}
-  </>
-
+</>
 }
-  
+
+
+{
+work.length > 0 &&
+<>
+<div className="todoCategory">
+    Work
+  </div>
+  {work.map(item => {
+if(!item.completed){
+  return(
+    <TodoItem 
+    name={item.todo}
+    time={item.time}
+    category={item.category}
+    isCompleted={item.completed}
+    id={item.id}
+     />
+  )
+}})}
+
+</>
+}
 
 </>
 

@@ -4,8 +4,10 @@ import '../style/TodoCompleted.css'
 import TodoItem from './TodoItem';
 
 const TodoCompleted = () => { 
-  const {studying} = useSelector(state => state.todoReducer.todos)
-let [showCompleted,setShowCompleted] = useState(false)
+
+  const completedTodos = useSelector(state => state.todoReducer.todos.completedTodos);
+
+  let [showCompleted,setShowCompleted] = useState(false)
   
 return(
 <>
@@ -24,19 +26,21 @@ return(
 <div className="todoCategory">
     Today
   </div>
-  {studying.map(item => {
-if(item.completed){
+
+  {completedTodos.map(item => {
+
   return(
     <TodoItem 
     name={item.todo}
     time={item.time}
     category={item.category}
     isCompleted={item.completed}
+    id={item.id}
      />
   )
-}
 
 })}
+
   </div>
   }
   

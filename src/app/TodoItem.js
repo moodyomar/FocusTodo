@@ -6,9 +6,13 @@ import { AiFillClockCircle } from 'react-icons/ai';
 import { ImLoop2 } from 'react-icons/im';
 import { HiOutlineBookOpen } from 'react-icons/hi';
 import { MdWork, MdFilterNone } from 'react-icons/md';
+import { completedTodo, deleteTodo } from '../redux/actions/todoActions';
+import { useDispatch } from 'react-redux';
 
 
-const TodoItem = ({ name, time, category, isCompleted }) => {
+const TodoItem = ({ name, time, category, isCompleted,id }) => {
+
+  const dispatch = useDispatch()
 
   const findCategory = (_cat) => {
 
@@ -35,7 +39,6 @@ const TodoItem = ({ name, time, category, isCompleted }) => {
   //   console.log(clocks_ar);
   //   clocks_ar.map(cl => ( <ImLoop2 className="me-2" /> ))
     
-
   // }
 
 return (
@@ -45,10 +48,10 @@ return (
     <div className="todo d-flex align-items-center">
       <div className="col-2 ps-3">
         <FaTrash
-          onClick={() => console.log('delete single todo')
+          onClick={() => dispatch(deleteTodo(id))
           } className={`trash fs-6 me-1 ${isCompleted && 'isCompleted'}`} />
         <IoIosCheckmarkCircle
-          onClick={() => console.log('mark done single todo')} className={`done fs-5 ${isCompleted && 'isCompleted'}`} />
+          onClick={() => dispatch(completedTodo(id)) } className={`done fs-5 ${isCompleted && 'isCompleted'}`} />
       </div>
       <div className="col-7">
         <div className="d-flex flex-column">
