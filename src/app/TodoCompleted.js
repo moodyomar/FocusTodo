@@ -31,11 +31,7 @@ return(
 
   return(
     <TodoItem 
-    name={item.todo}
-    time={item.time}
-    category={item.category}
-    isCompleted={item.completed}
-    id={item.id}
+    item={item}
      />
   )
 

@@ -28,7 +28,10 @@ const todoReducer = (state = initState, { type, payload }) => {
 
   let allTodos = [...state.todos.health,...state.todos.studying,...state.todos.work];
 
+
+
   switch (type) {
+    
     
     case ADD_TODO:
       let dispatchedTodo = {

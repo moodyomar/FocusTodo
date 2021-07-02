@@ -26,11 +26,7 @@ studying.length > 0 &&
 if(!item.completed){
   return(
     <TodoItem 
-    name={item.todo}
-    time={item.time}
-    category={item.category}
-    isCompleted={item.completed}
-    id={item.id}
+    item={item}
      />
   )
 }})}
@@ -48,11 +44,7 @@ health.length > 0 &&
 if(!item.completed){
   return(
     <TodoItem 
-    name={item.todo}
-    time={item.time}
-    category={item.category}
-    isCompleted={item.completed}
-    id={item.id}
+    item={item}
      />
   )
 }})}
@@ -70,11 +62,7 @@ work.length > 0 &&
 if(!item.completed){
   return(
     <TodoItem 
-    name={item.todo}
-    time={item.time}
-    category={item.category}
-    isCompleted={item.completed}
-    id={item.id}
+    item={item}
      />
   )
 }})}

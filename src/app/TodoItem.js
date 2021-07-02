@@ -10,7 +10,7 @@ import { completedTodo, deleteTodo } from '../redux/actions/todoActions';
 import { useDispatch } from 'react-redux';
 
 
-const TodoItem = ({ name, time, category, isCompleted,id }) => {
+const TodoItem = ({ item }) => {
 
   const dispatch = useDispatch()
 
@@ -48,15 +48,15 @@ return (
     <div className="todo d-flex align-items-center">
       <div className="col-2 ps-3">
         <FaTrash
-          onClick={() => dispatch(deleteTodo(id))
-          } className={`trash fs-6 me-1 ${isCompleted && 'isCompleted'}`} />
+          onClick={() => dispatch(deleteTodo(item.id))
+          } className={`trash fs-6 me-1 ${item.isCompleted && 'isCompleted'}`} />
         <IoIosCheckmarkCircle
-          onClick={() => dispatch(completedTodo(id)) } className={`done fs-5 ${isCompleted && 'isCompleted'}`} />
+          onClick={() => dispatch(completedTodo(item.id)) } className={`done fs-5 ${item.isCompleted && 'isCompleted'}`} />
       </div>
       <div className="col-7">
         <div className="d-flex flex-column">
-          <div className={`todoName ${isCompleted && 'isCompleted'}`}>
-            {name}
+          <div className={`todoName ${item.isCompleted && 'isCompleted'}`}>
+            {item.todo}
           </div>
           <div className="todoTime">
             
@@ -73,9 +73,9 @@ return (
           <ImLoop2
             className="me-2" />
 
-          { findCategory(category) }
+          { findCategory(item.category) }
 
-          {time}
+          {item.time}
         </div>
       </div>
     </div>
