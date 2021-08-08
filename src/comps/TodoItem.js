@@ -49,13 +49,13 @@ return (
       <div className="col-2 ps-3">
         <FaTrash
           onClick={() => dispatch(deleteTodo(item.id))
-          } className={`trash fs-6 me-1 ${item.isCompleted && 'isCompleted'}`} />
+          } className={`trash fs-6 me-1 ${item.completed && 'isCompleted'}`} />
         <IoIosCheckmarkCircle
-          onClick={() => dispatch(completedTodo(item.id)) } className={`done fs-5 ${item.isCompleted && 'isCompleted'}`} />
+          onClick={() => dispatch(completedTodo(item.id)) } className={`done fs-5 ${item.completed && 'isCompleted'}`} />
       </div>
       <div className="col-7">
         <div className="d-flex flex-column">
-          <div className={`todoName ${item.isCompleted && 'isCompleted'}`}>
+          <div className={`todoName ${item.completed && 'isCompleted'}`}>
             {item.todo}
           </div>
           <div className="todoTime">
