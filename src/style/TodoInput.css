@@ -35,6 +35,7 @@ align-items: center;
   font-size: 13px;
   color: var(--text);
   margin-right: 10px;
+  text-align: center;
 }
 
 .mySelect{
@@ -45,4 +46,11 @@ align-items: center;
   border-radius: 10px;
   margin-left: 10px;
   font-size: 15px;
+}
+
+
+@media screen and (max-width: 600px) {
+  .text{
+    font-size: 9px;
+  }
 }

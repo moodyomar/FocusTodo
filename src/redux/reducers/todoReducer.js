@@ -28,8 +28,6 @@ const todoReducer = (state = initState, { type, payload }) => {
 
   let allTodos = [...state.todos.health,...state.todos.studying,...state.todos.work];
 
-
-
   switch (type) {
     
     
@@ -42,23 +40,16 @@ const todoReducer = (state = initState, { type, payload }) => {
         completed: payload.isCompleted,
       }
 
-      if (payload.category === 'Studying') {
-        return { ...state,todos:{...state.todos,
-          studying:[...state.todos.studying,dispatchedTodo],
-  
-        }}
-      }
-      if (payload.category === 'Health') {
-        return { ...state,todos:{...state.todos,
-          health:[...state.todos.health,dispatchedTodo],
-  
-        }}
-      }
-      if (payload.category === 'Work') {
-        return { ...state,todos:{...state.todos,
-          work:[...state.todos.work,dispatchedTodo],
-  
-        }}
+      switch (payload.category) {
+        case 'Studying':
+          return { ...state,todos:{...state.todos,
+            studying:[...state.todos.studying,dispatchedTodo] }};
+        case 'Health':
+          return { ...state,todos:{...state.todos,
+            health:[...state.todos.health,dispatchedTodo]}};
+        case 'Work':
+          return { ...state,todos:{...state.todos,
+            health:[...state.todos.health,dispatchedTodo]}};
       }
 
       case COMPLETE_TODO:

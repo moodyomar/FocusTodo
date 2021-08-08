@@ -25,7 +25,7 @@ studying.length > 0 &&
   {studying.map(item => {
 if(!item.completed){
   return(
-    <TodoItem 
+    <TodoItem key={item.id}
     item={item}
      />
   )
@@ -43,7 +43,7 @@ health.length > 0 &&
   {health.map(item => {
 if(!item.completed){
   return(
-    <TodoItem 
+    <TodoItem key={item.id}
     item={item}
      />
   )
@@ -61,7 +61,7 @@ work.length > 0 &&
   {work.map(item => {
 if(!item.completed){
   return(
-    <TodoItem 
+    <TodoItem key={item.id}
     item={item}
      />
   )

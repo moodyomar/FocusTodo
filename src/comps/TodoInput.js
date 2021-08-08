@@ -7,8 +7,8 @@ import { addTodo } from '../redux/actions/todoActions';
 
 
 const TodoInput = () => {
-
 let selectedCategory = useRef();
+let inputRef = useRef();
 
 // state managment
 let {estimatedTime,
@@ -26,14 +26,17 @@ const getDay = d.getDay()
 const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 const day = days[getDay-1]
 
-const onHittingEnter = (e) => {
+const scanTodoInput = (e) => {
   let category = selectedCategory.current.value;
-  if(e.code === 'Enter' && e.target.value.length > 5){
-   dispatch(addTodo(e.target.value,day,category,false));
-   e.target.value = ''
+  let input = inputRef.current.value;
+  if(e.code === 'Enter' || e.type === 'click'){
+    if(input.length > 5){
+      dispatch(addTodo(input,day,category,false));
+      inputRef.current.value = ' '
+    }else{
+      alert('Please enter a valid todo')
+    }  
   }
-    
-  
   }
 
 
@@ -69,8 +72,9 @@ const onHittingEnter = (e) => {
         </div>
 
         <div className="taskAdder">
-          <FaPlus className="plus" />
-          <input onKeyPress={(e) => onHittingEnter(e)} type="test" placeholder="Add a task to “Studying” press Enter to save" />
+          <FaPlus onClick={(e) => scanTodoInput(e)} className="plus" />
+
+          <input onKeyPress={(e) => scanTodoInput(e)} type="test" placeholder="Add a task to “Work” press Enter to save" ref={inputRef} />
           <select className="mySelect" ref={selectedCategory} >
             <option value="Studying">Studying</option>
             <option value="Health">Health</option>

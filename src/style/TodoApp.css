@@ -6,3 +6,9 @@
   background-color: #F1F2F4;
   border-radius: 15px;
 }
+
+@media screen and (max-width: 600px) {
+  .todoApp{
+    width: 390px;
+  }
+}
