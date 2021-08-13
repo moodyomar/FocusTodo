@@ -40,6 +40,7 @@ health.length > 0 &&
 <div className="todoCategory">
     Health
   </div>
+  <div className="todosBody">
   {health.map(item => {
 if(!item.completed){
   return(
@@ -48,6 +49,7 @@ if(!item.completed){
      />
   )
 }})}
+</div>
 </>
 }
 

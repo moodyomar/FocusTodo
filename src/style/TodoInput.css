@@ -31,6 +31,9 @@ align-items: center;
   font-size: 30px;
   color: var(--clock);
 }
+.numbers span{
+  font-size: 1.2rem;
+}
 .text{
   font-size: 13px;
   color: var(--text);

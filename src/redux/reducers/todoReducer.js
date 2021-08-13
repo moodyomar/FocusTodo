@@ -8,18 +8,19 @@ const initState = {
 
     studying: [
 
-      { id: 112, todo: 'Read a book', time: 'today', category: 'Studying', completed: false },
+      
     ],
-    health: [],
+    health: [
+   
+    ],
     work:[],
     completedTodos:[
-      { id: 115, todo: 'test completed todo', time: 'today', category: 'Health', completed: true },
+      
     ]
 
   },
 
   estimatedTime: 2.3,
-  tasksToBeCompleted: 3,
   elapsedTime: 8.1,
 
 }

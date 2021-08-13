@@ -18,7 +18,6 @@ let {estimatedTime,
  let completedTodos = useSelector(state => state.todoReducer.todos.completedTodos.length);
  let {studying,health,work} = useSelector(state => state.todoReducer.todos);
 let todosToBeCompleted = [...studying,...health,...work].length;
-console.log(todosToBeCompleted);
 
 let dispatch = useDispatch();
 const d = new Date()
@@ -53,15 +52,15 @@ const scanTodoInput = (e) => {
         <div className="headerInfo mb-3">
           <div className="d-flex">
             <div className="d-flex flex-column">
-              <div className="numbers">{estimatedTime}</div>
+              <div className="numbers">{(todosToBeCompleted - completedTodos)/2}<span> h</span></div>
               <div className="text">Estimated Time</div>
             </div>
             <div className="d-flex flex-column">
-              <div className="numbers">{todosToBeCompleted}</div>
+              <div className="numbers">{todosToBeCompleted - completedTodos}</div>
               <div className="text">Tasks to be Completed</div>
             </div>
             <div className="d-flex flex-column">
-              <div className="numbers">{elapsedTime}</div>
+              <div className="numbers">{completedTodos*0.5}</div>
               <div className="text">Elapsed Time</div>
             </div>
             <div className="d-flex flex-column">

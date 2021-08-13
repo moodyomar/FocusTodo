@@ -1,3 +1,6 @@
 .todoCategory{
   margin-top: 20px;
 }
+.todosBody{
+  overflow: auto;
+}
